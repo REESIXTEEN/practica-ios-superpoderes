@@ -5,15 +5,10 @@
 //  Created by Pablo Gómez on 17/3/23.
 //
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let welcome = try? JSONDecoder().decode(Welcome.self, from: jsonData)
-
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Characters: Codable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
@@ -100,4 +95,33 @@ enum URLType: String, Codable {
     case comiclink = "comiclink"
     case detail = "detail"
     case wiki = "wiki"
+}
+
+
+
+
+
+// MARK: - CharacterSerie
+struct CharacterSerie: Codable {
+    let code: Int
+    let status, copyright, attributionText, attributionHTML: String
+    let etag: String
+    let data: DataClassSerie
+}
+
+// MARK: - DataClass
+struct DataClassSerie: Codable {
+    let offset, limit, total, count: Int
+    let results: [ResultSerie]
+}
+
+// MARK: - Result
+struct ResultSerie: Codable {
+    let id: Int
+    let title: String
+    let description: String?
+    let startYear, endYear: Int
+    let rating, type: String
+    let modified: Date
+    let thumbnail: Thumbnail
 }

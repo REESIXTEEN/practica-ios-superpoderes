@@ -22,7 +22,7 @@ struct HTTPMethods {
 
 enum endpoints : String {
     case characters = "v1/public/characters"
-    case characterSeries = "v1/public/characters/{characterId}/series"
+//    case characterSeries(String) = "v1/public/characters/{characterId}/series"
 }
 
 
@@ -43,26 +43,20 @@ struct BaseNetwork {
         return request
     }
     
-    //lista de heroes
-//    func getCharactereries(filter:String) -> URLRequest{
-//        let urlcad : String = "\(server)\(endpoints.characterSeries.rawValue)"
-//        var request : URLRequest = URLRequest(url: URL(string: urlcad)!)
-//        request.httpMethod = HTTPMethods.post
-//
-//        request.httpBody = try? JSONEncoder().encode(HerosFilter(name: filter))
-//        request.addValue(HTTPMethods.content, forHTTPHeaderField: "Content-type")
-//
-//        //>Seguridad
-//
-//
-//        if let token = loadKC(key: CONST_TOKEN_ID){
-//            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        }
-//
-//        return request
-//    }
-    
-    
+    func getCharacterSeries(characterId: String) -> URLRequest {
+        let urlString : String = "\(server)\(endpoints.characters.rawValue)/\(characterId)/series"
+ 
+        var urlComponents = URLComponents(string: urlString)!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "apikey", value: apikey),
+            URLQueryItem(name: "hash", value: hash),
+            URLQueryItem(name: "ts", value: ts)
+        ]
+        var request = URLRequest(url: urlComponents.url!)
+        request.httpMethod = HTTPMethods.get
+
+        return request
+    }
 }
 
 

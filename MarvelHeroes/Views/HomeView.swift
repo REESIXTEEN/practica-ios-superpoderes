@@ -11,14 +11,26 @@ struct HomeView: View {
     @StateObject var viewmodel = HomeViewModel()
     
     var body: some View {
-        VStack {
-            List{
-                ForEach($viewmodel.heroes) { heroe in
-                    HeroeRowView(heroe: heroe)
+        
+        NavigationStack {
+            ZStack() {
+                List {
+                    ForEach($viewmodel.characters) { character in
+                        HeroeRowView(heroe: character)
+                    }
                 }
+                .navigationTitle("Marvel characters")
+                .scrollContentBackground(.hidden)
+//                .background(Rectangle().opacity(0.8))
+
+
             }
+//            .background(Rectangle().opacity(0.8))
+//            .background(Image(decorative: "background"))
+
         }
-        .padding(0)
+        .background(Color.blue)
+    
     }
 }
 
@@ -26,7 +38,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = readJson(forName: "TestData")
         let vm = HomeViewModel()
-        vm.heroes = data
+        vm.characters = data
 
         return HomeView(viewmodel: vm)
     }

@@ -10,19 +10,19 @@ import Combine
 
 final class HomeViewModel : ObservableObject{
     
-    @Published var heroes: [Result] = []
+    @Published var characters: [Result] = []
     let network = Network()
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
     
         
     init(){
-        fetchHeroes()
+        fetchCharacters()
     }
     
-    func fetchHeroes() {
+    func fetchCharacters() {
         let request = baseNetwork.getCharacters()
-        network.fetchApiData(type: Welcome.self, request: request)
+        network.fetchApiData(type: Characters.self, request: request)
             .sink { completion in
                 switch completion{
                 case .failure:
@@ -33,7 +33,25 @@ final class HomeViewModel : ObservableObject{
                     print("")
                 }
             } receiveValue: { data in
-                self.heroes = data.data.results
+                self.characters = data.data.results
+            }
+            .store(in: &suscriptors)
+    }
+    
+    func fetchCharacterSeries(characterId: String) {
+        let request = baseNetwork.getCharacterSeries(characterId: characterId)
+        network.fetchApiData(type: CharacterSerie.self, request: request)
+            .sink { completion in
+                switch completion{
+                case .failure:
+//                    self.status = Status.error(error: "Error buscando heroes")
+                    print("")
+                case .finished:
+//                    self.status = .loaded
+                    print("")
+                }
+            } receiveValue: { data in
+//                self.heroes = data.data.results
             }
             .store(in: &suscriptors)
     }

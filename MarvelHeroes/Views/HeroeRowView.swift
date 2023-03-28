@@ -11,48 +11,54 @@ struct HeroeRowView: View {
     @Binding var heroe: Result
     
     var body: some View {
-        ZStack(){
+        ZStack{
             AsyncImage(url: URL(string: "\(heroe.thumbnail.path).\(heroe.thumbnail.thumbnailExtension.rawValue)")) { image in
                 image
                     .resizable()
                     .scaledToFill()
+                    .frame(width: 350,height: 200)
+                    .clipped()
+                
             } placeholder: {
-                Image(systemName: "photo")
-                    .resizable()
-                    .opacity(0.5)
-                    .foregroundColor(.gray)
-                    .scaledToFill()
+                ProgressView()
+                    .scaleEffect(x:3,y:3)
             }
+
             
             Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .top, endPoint: .bottom))
-                .opacity(0.4)
+                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
+                .opacity(0.8)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "heart")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                }
+                Spacer()
+                HStack {
+                    Text(heroe.name)
+                        .font(.title2)
+                        .bold()
+                    .foregroundColor(.white)
+                    Spacer()
+                }
+            }
+            .padding()
+
         }
-        .overlay(
-            Text(heroe.name)
-                .font(.title2)
-                .bold()
-                .foregroundColor(.white)
-                .padding()
-                .frame(height: 50),
-            alignment: .bottomLeading
-        )
-        .overlay(
-            Image(systemName: "heart")
-                .font(.title)
-                .foregroundColor(.white)
-                .padding(),
-            alignment: .topTrailing
-        )
-//        .frame(width: .infinity,height: 300)
-        .scaledToFit()
-        .cornerRadius(16)
+        .frame(width: 350,height: 200)
+        .background(.clear)
+        .cornerRadius(8)
+        
     }
 }
 
 struct HeroeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let heroe = readJson(forName: "TestData")[0]
+        let heroe = readJson(forName: "TestData")[1]
         
         HeroeRowView(heroe: .constant(heroe))
     }
