@@ -116,7 +116,7 @@ struct DataClassSerie: Codable {
 }
 
 // MARK: - Result
-struct ResultSerie: Codable {
+struct ResultSerie: Codable, Identifiable {
     let id: Int
     let title: String
     let description: String?

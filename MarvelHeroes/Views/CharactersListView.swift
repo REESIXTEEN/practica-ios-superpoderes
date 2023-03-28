@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct CharactersListView: View {
     @StateObject var viewmodel = HomeViewModel()
+    @State private var searchText = ""
     
     var body: some View {
         
@@ -16,7 +17,12 @@ struct HomeView: View {
             ZStack() {
                 List {
                     ForEach($viewmodel.characters) { character in
-                        HeroeRowView(heroe: character)
+                        NavigationLink {
+//                            viewmodel.fetchCharacterSeries(characterId: character.id)
+                            SerieListView(character: character)
+                        } label: {
+                            CharacterRowView(character: character)
+                        }
                     }
                 }
                 .navigationTitle("Marvel characters")
@@ -30,16 +36,17 @@ struct HomeView: View {
 
         }
         .background(Color.blue)
+        .searchable(text: $searchText)
     
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let data = readJson(forName: "TestData")
+        let data = readCharacterJson(forName: "CharactersData")
         let vm = HomeViewModel()
         vm.characters = data
 
-        return HomeView(viewmodel: vm)
+        return CharactersListView(viewmodel: vm)
     }
 }

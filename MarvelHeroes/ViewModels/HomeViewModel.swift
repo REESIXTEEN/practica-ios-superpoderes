@@ -11,6 +11,7 @@ import Combine
 final class HomeViewModel : ObservableObject{
     
     @Published var characters: [Result] = []
+    @Published var characterSeries: [ResultSerie] = []
     let network = Network()
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
@@ -38,8 +39,8 @@ final class HomeViewModel : ObservableObject{
             .store(in: &suscriptors)
     }
     
-    func fetchCharacterSeries(characterId: String) {
-        let request = baseNetwork.getCharacterSeries(characterId: characterId)
+    func fetchCharacterSeries(characterId: Int) {
+        let request = baseNetwork.getCharacterSeries(characterId: String(characterId))
         network.fetchApiData(type: CharacterSerie.self, request: request)
             .sink { completion in
                 switch completion{
@@ -51,7 +52,7 @@ final class HomeViewModel : ObservableObject{
                     print("")
                 }
             } receiveValue: { data in
-//                self.heroes = data.data.results
+                self.characterSeries = data.data.results
             }
             .store(in: &suscriptors)
     }

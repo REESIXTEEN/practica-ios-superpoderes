@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct HeroeRowView: View {
-    @Binding var heroe: Result
+struct CharacterRowView: View {
+    @Binding var character: Result
     
     var body: some View {
         ZStack{
-            AsyncImage(url: URL(string: "\(heroe.thumbnail.path).\(heroe.thumbnail.thumbnailExtension.rawValue)")) { image in
+            AsyncImage(url: URL(string: "\(character.thumbnail.path).\(character.thumbnail.thumbnailExtension.rawValue)")) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -39,7 +39,7 @@ struct HeroeRowView: View {
                 }
                 Spacer()
                 HStack {
-                    Text(heroe.name)
+                    Text(character.name)
                         .font(.title2)
                         .bold()
                     .foregroundColor(.white)
@@ -58,8 +58,8 @@ struct HeroeRowView: View {
 
 struct HeroeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let heroe = readJson(forName: "TestData")[1]
+        let character = readCharacterJson(forName: "CharactersData")[1]
         
-        HeroeRowView(heroe: .constant(heroe))
+        CharacterRowView(character: .constant(character))
     }
 }
