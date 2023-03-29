@@ -14,28 +14,29 @@ final class CharacterViewModel : ObservableObject{
     let network = Network()
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
+    var mock: Bool
     
         
-    init(){
-        fetchCharacters()
+    init(_ mock:Bool = false){
+        self.mock = mock
     }
     
     func fetchCharacters() {
-        let request = baseNetwork.getCharacters()
-        network.fetchApiData(type: Characters.self, request: request)
-            .sink { completion in
-                switch completion{
-                case .failure:
-//                    self.status = Status.error(error: "Error buscando heroes")
-                    print("")
-                case .finished:
-//                    self.status = .loaded
-                    print("")
+        if(!mock){
+            let request = baseNetwork.getCharacters()
+            network.fetchApiData(type: Characters.self, request: request)
+                .sink { completion in
+                    switch completion{
+                    case .failure:
+                        debugPrint("Error getting the marvel characters")
+                    case .finished:
+                        debugPrint("Success getting the marvel characters")
+                    }
+                } receiveValue: { data in
+                    self.characters = data.data.results
                 }
-            } receiveValue: { data in
-                self.characters = data.data.results
-            }
-            .store(in: &suscriptors)
+                .store(in: &suscriptors)
+        }
     }
     
 

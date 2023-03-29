@@ -15,23 +15,28 @@ class SeriesViewModel: ObservableObject {
     let network = Network()
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
+    var mock: Bool
     
+    init(_ mock:Bool = false){
+        self.mock = mock
+    }
     
     func fetchCharacterSeries(characterId: Int) {
-        let request = baseNetwork.getCharacterSeries(characterId: String(characterId))
-        network.fetchApiData(type: CharacterSeries.self, request: request)
-            .sink { completion in
-                switch completion{
-                case .failure:
-//                    self.status = Status.error(error: "Error buscando heroes")
-                    print("")
-                case .finished:
-//                    self.status = .loaded
-                    print("")
+        if(!mock) {
+            let request = baseNetwork.getCharacterSeries(characterId: String(characterId))
+            network.fetchApiData(type: CharacterSeries.self, request: request)
+                .sink { completion in
+                    switch completion{
+                    case .failure:
+                        debugPrint("Error getting the character series")
+                    case .finished:
+                        debugPrint("Success getting the character series")
+                    }
+                } receiveValue: { data in
+                    self.series = data.data.results
                 }
-            } receiveValue: { data in
-                self.series = data.data.results
-            }
-            .store(in: &suscriptors)
+                .store(in: &suscriptors)
+        }
+        
     }
 }

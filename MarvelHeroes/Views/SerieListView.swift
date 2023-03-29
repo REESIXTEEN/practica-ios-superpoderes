@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SerieListView: View {
-    @Binding var character: Result
+    var character: Result
     @StateObject var viewmodel = SeriesViewModel()
     
     var body: some View {
@@ -21,7 +21,7 @@ struct SerieListView: View {
                             .frame(width: geo.size.width*0.9)
                     }
                 }
-                .navigationTitle(character.name + " Series")
+                .navigationTitle(character.name + " (Series)")
                 .scrollContentBackground(.hidden)
             }
         }
@@ -34,6 +34,6 @@ struct CharacterSeries_Previews: PreviewProvider {
         let series = readSeriesJson(forName: "SeriesData")
         let vm = SeriesViewModel()
         vm.series = series
-        return SerieListView(character: .constant(character), viewmodel: vm)
+        return SerieListView(character: character, viewmodel: vm)
     }
 }

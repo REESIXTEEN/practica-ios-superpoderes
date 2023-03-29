@@ -16,7 +16,7 @@ struct CharactersListView: View {
         GeometryReader { geo in
             NavigationStack {
                 List {
-                    ForEach($viewmodel.characters) { character in
+                    ForEach(searchResults) { character in
                         CharacterRowView(character: character)
                             .background(
                                 NavigationLink {
@@ -40,9 +40,14 @@ struct CharactersListView: View {
             .searchable(text: $searchText)
 
         }
-//        .background(Color.blue)
-        
+    }
     
+    var searchResults: [Result] {
+        if searchText.isEmpty {
+            return viewmodel.characters
+        } else {
+            return viewmodel.characters.filter { $0.name.contains(searchText) }
+        }
     }
 }
 
