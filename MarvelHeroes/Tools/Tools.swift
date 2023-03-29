@@ -22,12 +22,12 @@ func readCharacterJson(forName name: String) -> [Result] {
     return []
 }
 
-func readSerieJson(forName name: String) -> [ResultSerie] {
+func readSerieJson(forName name: String) -> [ResultSeries] {
     do {
         if let filePath = Bundle.main.path(forResource: name, ofType: "json") {
             let fileUrl = URL(fileURLWithPath: filePath)
             let data = try Data(contentsOf: fileUrl)
-            let decodedData = try JSONDecoder().decode(DataClassSerie.self, from: data)
+            let decodedData = try JSONDecoder().decode(DataClassSeries.self, from: data)
             return decodedData.results
         }
     } catch {

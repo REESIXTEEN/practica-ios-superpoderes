@@ -25,6 +25,9 @@
 		CB82407729D3732200D07C18 /* SeriesData.json in Resources */ = {isa = PBXBuildFile; fileRef = CB82407629D3732200D07C18 /* SeriesData.json */; };
 		CB82407829D3732200D07C18 /* SeriesData.json in Resources */ = {isa = PBXBuildFile; fileRef = CB82407629D3732200D07C18 /* SeriesData.json */; };
 		CB82407929D3732200D07C18 /* SeriesData.json in Resources */ = {isa = PBXBuildFile; fileRef = CB82407629D3732200D07C18 /* SeriesData.json */; };
+		CB82407B29D4514E00D07C18 /* SerieRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407A29D4514E00D07C18 /* SerieRowView.swift */; };
+		CB82407C29D4514E00D07C18 /* SerieRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407A29D4514E00D07C18 /* SerieRowView.swift */; };
+		CB82407D29D4514E00D07C18 /* SerieRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407A29D4514E00D07C18 /* SerieRowView.swift */; };
 		CBB265DB29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
 		CBB265DC29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
 		CBB265DD29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
@@ -85,6 +88,7 @@
 		CB1C7E8F29C49E9E00A41134 /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
 		CB82407229D3712200D07C18 /* SerieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieListView.swift; sourceTree = "<group>"; };
 		CB82407629D3732200D07C18 /* SeriesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeriesData.json; sourceTree = "<group>"; };
+		CB82407A29D4514E00D07C18 /* SerieRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieRowView.swift; sourceTree = "<group>"; };
 		CBB265DA29D1B71900F647D1 /* CharactersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CharactersData.json; sourceTree = "<group>"; };
 		CBB265DE29D1B93D00F647D1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tools.swift; path = "/Users/pablich/Documents/keepcoding/modulo-ios-superpoderes/practica/MarvelHeroes/MarvelHeroes/Tools/Tools.swift"; sourceTree = "<absolute>"; };
 		CBB265EE29D1E18D00F647D1 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				CB1C7E5529C4879300A41134 /* CharactersListView.swift */,
 				CB1C7E8F29C49E9E00A41134 /* CharacterRowView.swift */,
 				CB82407229D3712200D07C18 /* SerieListView.swift */,
+				CB82407A29D4514E00D07C18 /* SerieRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				CB1C7E9029C49E9E00A41134 /* CharacterRowView.swift in Sources */,
 				CB1C7E8A29C48DD100A41134 /* HomeViewModel.swift in Sources */,
 				CB1C7E5429C4879300A41134 /* MarvelHeroesApp.swift in Sources */,
+				CB82407B29D4514E00D07C18 /* SerieRowView.swift in Sources */,
 				CBB265DF29D1B93D00F647D1 /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +378,7 @@
 			files = (
 				CBB265E229D1C60C00F647D1 /* Models.swift in Sources */,
 				CBB265E029D1B93D00F647D1 /* Tools.swift in Sources */,
+				CB82407C29D4514E00D07C18 /* SerieRowView.swift in Sources */,
 				CBB265E429D1C61100F647D1 /* Network.swift in Sources */,
 				CBB265F029D1E18D00F647D1 /* BaseNetwork.swift in Sources */,
 				CBB265EA29D1C61B00F647D1 /* CharacterRowView.swift in Sources */,
@@ -387,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB82407D29D4514E00D07C18 /* SerieRowView.swift in Sources */,
 				CBB265E529D1C61200F647D1 /* Network.swift in Sources */,
 				CBB265E929D1C61900F647D1 /* CharactersListView.swift in Sources */,
 				CBB265ED29D1C62000F647D1 /* MarvelHeroesApp.swift in Sources */,

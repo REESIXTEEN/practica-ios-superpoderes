@@ -13,30 +13,35 @@ struct CharactersListView: View {
     
     var body: some View {
         
-        NavigationStack {
-            ZStack() {
+        GeometryReader { geo in
+            NavigationStack {
                 List {
                     ForEach($viewmodel.characters) { character in
-                        NavigationLink {
-//                            viewmodel.fetchCharacterSeries(characterId: character.id)
-                            SerieListView(character: character)
-                        } label: {
-                            CharacterRowView(character: character)
-                        }
+                        CharacterRowView(character: character)
+                            .background(
+                                NavigationLink {
+                                    SerieListView(character: character)
+                                } label: {
+                                    
+                                }.opacity(0)
+                            )
+                            .frame(width: geo.size.width*0.9)
                     }
                 }
                 .navigationTitle("Marvel characters")
                 .scrollContentBackground(.hidden)
-//                .background(Rectangle().opacity(0.8))
-
-
+                
+                //                .background(Rectangle().opacity(0.8))
+                
+                
+                //            .background(Rectangle().opacity(0.8))
+                //            .background(Image(decorative: "background"))
             }
-//            .background(Rectangle().opacity(0.8))
-//            .background(Image(decorative: "background"))
+            .searchable(text: $searchText)
 
         }
-        .background(Color.blue)
-        .searchable(text: $searchText)
+//        .background(Color.blue)
+        
     
     }
 }

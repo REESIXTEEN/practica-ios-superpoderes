@@ -102,26 +102,26 @@ enum URLType: String, Codable {
 
 
 // MARK: - CharacterSerie
-struct CharacterSerie: Codable {
+struct CharacterSeries: Codable {
     let code: Int
     let status, copyright, attributionText, attributionHTML: String
     let etag: String
-    let data: DataClassSerie
+    let data: DataClassSeries
 }
 
 // MARK: - DataClass
-struct DataClassSerie: Codable {
+struct DataClassSeries: Codable {
     let offset, limit, total, count: Int
-    let results: [ResultSerie]
+    let results: [ResultSeries]
 }
 
 // MARK: - Result
-struct ResultSerie: Codable, Identifiable {
+struct ResultSeries: Codable, Identifiable {
     let id: Int
     let title: String
     let description: String?
     let startYear, endYear: Int
     let rating, type: String
-    let modified: Date
+    let modified: String
     let thumbnail: Thumbnail
 }
