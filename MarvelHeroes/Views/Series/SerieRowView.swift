@@ -64,7 +64,7 @@ struct SerieRowView: View {
 
 struct SerieRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let serie = readSeriesJson(forName: "SeriesData")[0]
+        let serie = parseJson(filename: "SeriesData", type: DataModel.series.model)[1] as! ResultSeries
         SerieRowView(serie: .constant(serie))
     }
 }

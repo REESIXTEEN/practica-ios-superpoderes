@@ -62,7 +62,7 @@ struct CharacterRowView: View {
 
 struct HeroeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let character = readCharacterJson(forName: "CharactersData")[1]
+        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[1] as! Result
         
         CharacterRowView(character: character)
     }

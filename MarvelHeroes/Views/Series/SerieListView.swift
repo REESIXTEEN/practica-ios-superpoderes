@@ -28,8 +28,9 @@ struct SerieListView: View {
 
 struct CharacterSeries_Previews: PreviewProvider {
     static var previews: some View {
-        let character = readCharacterJson(forName: "CharactersData")[0]
-        let series = readSeriesJson(forName: "SeriesData")
+        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[0] as! Result
+        let series = parseJson(filename: "SeriesData", type: DataModel.series.model) as! [ResultSeries]
+        
         let vm = SeriesViewModel(character: character, mock: true)
         vm.series = series
         return SerieListView(viewmodel: vm)

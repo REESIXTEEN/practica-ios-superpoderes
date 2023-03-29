@@ -52,9 +52,9 @@ struct CharactersListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let data = readCharacterJson(forName: "CharactersData")
+        let data = parseJson(filename: "CharactersData", type: DataModel.character.model)
         let vm = CharacterViewModel(mock: true)
-        vm.characters = data
+        vm.characters = data as! [Result]
 
         return CharactersListView(viewmodel: vm)
     }
