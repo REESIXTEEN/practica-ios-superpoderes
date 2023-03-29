@@ -8,24 +8,22 @@
 import SwiftUI
 
 struct SerieListView: View {
-    
     @Binding var character: Result
+    @StateObject var viewmodel = SeriesViewModel()
+    
     var body: some View {
-        NavigationStack {
-            List {
-//                ForEach($series) { serie in
-//                    NavigationLink {
-//                        
-//                    } label: {
-//                        Text("caca")
-//                    }
-//                }
-                
-//                Text("caca")
-//                Text("caca")
+        viewmodel.fetchCharacterSeries(characterId: character.id)
+        return GeometryReader { geo in
+            NavigationStack {
+                List {
+                    ForEach($viewmodel.series) { serie in
+                        SerieRowView(serie: serie)
+                            .frame(width: geo.size.width*0.9)
+                    }
+                }
+                .navigationTitle(character.name + " Series")
+                .scrollContentBackground(.hidden)
             }
-            .navigationTitle(character.name + " Series")
-            .scrollContentBackground(.hidden)
         }
     }
 }
@@ -33,6 +31,9 @@ struct SerieListView: View {
 struct CharacterSeries_Previews: PreviewProvider {
     static var previews: some View {
         let character = readCharacterJson(forName: "CharactersData")[0]
-        SerieListView(character: .constant(character))
+        let series = readSeriesJson(forName: "SeriesData")
+        let vm = SeriesViewModel()
+        vm.series = series
+        return SerieListView(character: .constant(character), viewmodel: vm)
     }
 }

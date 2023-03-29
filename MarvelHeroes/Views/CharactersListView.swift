@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharactersListView: View {
-    @StateObject var viewmodel = HomeViewModel()
+    @StateObject var viewmodel = CharacterViewModel()
     @State private var searchText = ""
     
     var body: some View {
@@ -49,7 +49,7 @@ struct CharactersListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = readCharacterJson(forName: "CharactersData")
-        let vm = HomeViewModel()
+        let vm = CharacterViewModel()
         vm.characters = data
 
         return CharactersListView(viewmodel: vm)
