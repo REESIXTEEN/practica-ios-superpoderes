@@ -17,26 +17,26 @@ final class CharacterViewModel : ObservableObject{
     var mock: Bool
     
         
-    init(_ mock:Bool = false){
+    init(mock:Bool = false){
         self.mock = mock
+        if(!mock){fetchCharacters()}
     }
     
     func fetchCharacters() {
-        if(!mock){
-            let request = baseNetwork.getCharacters()
-            network.fetchApiData(type: Characters.self, request: request)
-                .sink { completion in
-                    switch completion{
-                    case .failure:
-                        debugPrint("Error getting the marvel characters")
-                    case .finished:
-                        debugPrint("Success getting the marvel characters")
-                    }
-                } receiveValue: { data in
-                    self.characters = data.data.results
+        let request = baseNetwork.getCharacters()
+        network.fetchApiData(type: Characters.self, request: request)
+            .sink { completion in
+                switch completion{
+                case .failure:
+                    debugPrint("Error getting the marvel characters")
+                case .finished:
+                    debugPrint("Success getting the marvel characters")
                 }
-                .store(in: &suscriptors)
-        }
+            } receiveValue: { data in
+                self.characters = data.data.results
+            }
+            .store(in: &suscriptors)
+
     }
     
 

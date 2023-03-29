@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct CharactersListView: View {
-    @StateObject var viewmodel = CharacterViewModel()
+    @StateObject var viewmodel : CharacterViewModel
     @State private var searchText = ""
     
     var body: some View {
-        
         GeometryReader { geo in
             NavigationStack {
                 List {
@@ -20,7 +19,7 @@ struct CharactersListView: View {
                         CharacterRowView(character: character)
                             .background(
                                 NavigationLink {
-                                    SerieListView(character: character)
+                                    SerieListView(viewmodel: SeriesViewModel(character: character))
                                 } label: {
                                     
                                 }.opacity(0)
@@ -54,7 +53,7 @@ struct CharactersListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = readCharacterJson(forName: "CharactersData")
-        let vm = CharacterViewModel()
+        let vm = CharacterViewModel(mock: true)
         vm.characters = data
 
         return CharactersListView(viewmodel: vm)

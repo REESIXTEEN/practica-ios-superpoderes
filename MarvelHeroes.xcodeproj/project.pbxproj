@@ -191,10 +191,8 @@
 		CB1C7E7E29C48B4700A41134 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB1C7E5529C4879300A41134 /* CharactersListView.swift */,
-				CB1C7E8F29C49E9E00A41134 /* CharacterRowView.swift */,
-				CB82407229D3712200D07C18 /* SerieListView.swift */,
-				CB82407A29D4514E00D07C18 /* SerieRowView.swift */,
+				CB82408229D4BEDB00D07C18 /* Characters */,
+				CB82408329D4BEE300D07C18 /* Series */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +222,24 @@
 				CBB265DE29D1B93D00F647D1 /* Tools.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		CB82408229D4BEDB00D07C18 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				CB1C7E5529C4879300A41134 /* CharactersListView.swift */,
+				CB1C7E8F29C49E9E00A41134 /* CharacterRowView.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		CB82408329D4BEE300D07C18 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				CB82407229D3712200D07C18 /* SerieListView.swift */,
+				CB82407A29D4514E00D07C18 /* SerieRowView.swift */,
+			);
+			path = Series;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
