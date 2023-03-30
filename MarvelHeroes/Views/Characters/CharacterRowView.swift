@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharacterRowView: View {
-    var character: Result
+    var character: ResultCharacter
     
     var body: some View {
         GeometryReader { geo in
@@ -62,7 +62,7 @@ struct CharacterRowView: View {
 
 struct HeroeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[1] as! Result
+        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[1] as! ResultCharacter
         
         CharacterRowView(character: character)
     }

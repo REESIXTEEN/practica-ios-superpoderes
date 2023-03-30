@@ -12,13 +12,14 @@ import Combine
 class SeriesViewModel: ObservableObject {
     
     @Published var series: [ResultSeries] = []
+    @Published var error = vmError()
     let network = Network()
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
-    var character: Result
+    var character: ResultCharacter
     var mock: Bool
     
-    init(character:Result,mock:Bool = false){
+    init(character:ResultCharacter,mock:Bool = false){
         self.character = character
         self.mock = mock
         if(!mock) {fetchCharacterSeries()}
@@ -31,8 +32,11 @@ class SeriesViewModel: ObservableObject {
                 switch completion{
                 case .failure:
                     debugPrint("Error getting the character series")
+                    self.error.description = "Error getting the marvel series from the Marvel API"
+                    self.error.status = true
                 case .finished:
                     debugPrint("Success getting the character series")
+                    self.error.status = false
                 }
             } receiveValue: { data in
                 self.series = data.data.results

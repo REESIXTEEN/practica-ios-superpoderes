@@ -37,11 +37,14 @@ struct CharactersListView: View {
                 //            .background(Image(decorative: "background"))
             }
             .searchable(text: $searchText)
+            .alert(isPresented: $viewmodel.error.status) {
+                Alert(title: Text("Error"), message: Text(viewmodel.error.description), dismissButton: .default(Text("OK")))
+            }
 
         }
     }
     
-    var searchResults: [Result] {
+    var searchResults: [ResultCharacter] {
         if searchText.isEmpty {
             return viewmodel.characters
         } else {
@@ -54,7 +57,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = parseJson(filename: "CharactersData", type: DataModel.character.model)
         let vm = CharacterViewModel(mock: true)
-        vm.characters = data as! [Result]
+        vm.characters = data as! [ResultCharacter]
 
         return CharactersListView(viewmodel: vm)
     }

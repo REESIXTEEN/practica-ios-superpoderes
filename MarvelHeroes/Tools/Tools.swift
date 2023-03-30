@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct vmError {
+    var status = false
+    var description = ""
+}
+
 enum DataModel {
     case character
     case series
@@ -14,7 +19,7 @@ enum DataModel {
     var model: Decodable.Type {
         switch self {
         case .character:
-            return Result.self
+            return ResultCharacter.self
         case .series:
             return ResultSeries.self
         }

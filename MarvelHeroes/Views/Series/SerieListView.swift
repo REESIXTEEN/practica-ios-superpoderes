@@ -22,13 +22,16 @@ struct SerieListView: View {
                 .navigationTitle(viewmodel.character.name + " (Series)")
                 .scrollContentBackground(.hidden)
             }
+            .alert(isPresented: $viewmodel.error.status) {
+                Alert(title: Text("Error"), message: Text(viewmodel.error.description), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
 
 struct CharacterSeries_Previews: PreviewProvider {
     static var previews: some View {
-        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[0] as! Result
+        let character = parseJson(filename: "CharactersData", type: DataModel.character.model)[0] as! ResultCharacter
         let series = parseJson(filename: "SeriesData", type: DataModel.series.model) as! [ResultSeries]
         
         let vm = SeriesViewModel(character: character, mock: true)
