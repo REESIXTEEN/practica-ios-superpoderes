@@ -13,16 +13,19 @@ class SeriesViewModel: ObservableObject {
     
     @Published var series: [ResultSeries] = []
     @Published var error = vmError()
-    let network = Network()
+    let network : Network
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
     var character: ResultCharacter
-    var mock: Bool
     
     init(character:ResultCharacter,mock:Bool = false){
+        if mock {
+            self.network = MockNetwork(file: mockFilesData.series.rawValue)
+        }else {
+            self.network = Network()
+        }
         self.character = character
-        self.mock = mock
-        if(!mock) {fetchCharacterSeries()}
+        fetchCharacterSeries()
     }
     
     func fetchCharacterSeries() {

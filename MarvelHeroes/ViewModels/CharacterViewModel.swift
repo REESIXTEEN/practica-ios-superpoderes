@@ -12,15 +12,18 @@ final class CharacterViewModel : ObservableObject{
     
     @Published var characters: [ResultCharacter] = []
     @Published var error = vmError()
-    let network = Network()
+    let network: Network
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
-    var mock: Bool
     
         
     init(mock:Bool = false){
-        self.mock = mock
-        if(!mock){fetchCharacters()}
+        if mock {
+            self.network = MockNetwork(file: mockFilesData.characters.rawValue)
+        }else {
+            self.network = Network()
+        }
+        fetchCharacters()
     }
     
     func fetchCharacters() {

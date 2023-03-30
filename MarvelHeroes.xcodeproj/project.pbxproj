@@ -164,8 +164,8 @@
 		CB1C7E5A29C4879400A41134 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				CB82407629D3732200D07C18 /* SeriesData.json */,
 				CBB265DA29D1B71900F647D1 /* CharactersData.json */,
+				CB82407629D3732200D07C18 /* SeriesData.json */,
 				CB1C7E5B29C4879400A41134 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";

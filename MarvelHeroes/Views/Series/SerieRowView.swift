@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SerieRowView: View {
-    @Binding var serie: ResultSeries
+    var serie: ResultSeries
     
     var body: some View {
         GeometryReader { geo in
@@ -64,7 +64,9 @@ struct SerieRowView: View {
 
 struct SerieRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let serie = parseJson(filename: "SeriesData", type: DataModel.series.model)[1] as! ResultSeries
-        SerieRowView(serie: .constant(serie))
+        let character = CharacterViewModel(mock: true).characters[0]
+        let vm = SeriesViewModel(character: character, mock: true)
+        let serie = vm.series[1]
+        SerieRowView(serie: serie)
     }
 }
