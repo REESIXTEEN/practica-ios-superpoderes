@@ -25,7 +25,6 @@ struct CharacterRowView: View {
                         .scaleEffect(x:3,y:3)
                 }
 
-                
                 Rectangle()
                     .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
                     .opacity(0.8)

@@ -32,20 +32,20 @@ struct vmError {
 //    }
 //}
 
-//func parseJson<T: Decodable>(filename: String, type: T.Type) -> [T] {
+//func parseJson<T: Decodable>(filename: String, type: T.Type) -> T? {
 //    if let filePath = Bundle.main.path(forResource: filename, ofType: "json") {
 //        do {
 //            let fileUrl = URL(fileURLWithPath: filePath)
 //            let data = try Data(contentsOf: fileUrl)
-//            let decodedData = try JSONDecoder().decode([T].self, from: data)
+//            let decodedData = try JSONDecoder().decode(T.self, from: data)
 //            return decodedData
 //        } catch {
 //            print("Error parsing JSON: \(error.localizedDescription)")
-//            return []
+//            return nil
 //        }
 //    } else {
 //        print("File not found")
-//        return []
+//        return nil
 //    }
 //}
 
