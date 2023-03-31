@@ -37,5 +37,16 @@ final class SeriesViewModelTests: XCTestCase {
         XCTAssertEqual(serie, serieVm.series[0])
 
     }
+    
+    func testFetchCharacterSeriesError() throws {
+        let charVm = CharacterViewModel(mock: true)
+        let character = charVm.characters[0]
+        let serieVm = SeriesViewModel(character: character , mock: true)
+        serieVm.network = MockNetwork(file: "CharactersData", shouldFail: true)
+        serieVm.fetchCharacterSeries()
+        
+        XCTAssertTrue(serieVm.error.status == true)
+
+    }
 
 }

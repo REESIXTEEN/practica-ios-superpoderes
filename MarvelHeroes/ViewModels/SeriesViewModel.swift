@@ -13,7 +13,7 @@ class SeriesViewModel: ObservableObject {
     
     @Published var series: [ResultSeries] = []
     @Published var error = vmError()
-    let network : Network
+    var network : Network
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
     var character: ResultCharacter

@@ -32,6 +32,8 @@
 		CB82408029D4671F00D07C18 /* SeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407E29D4671F00D07C18 /* SeriesViewModel.swift */; };
 		CB82408129D4671F00D07C18 /* SeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407E29D4671F00D07C18 /* SeriesViewModel.swift */; };
 		CB82408529D706AB00D07C18 /* SeriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82408429D706AB00D07C18 /* SeriesViewModelTests.swift */; };
+		CB82408729D7233C00D07C18 /* BaseNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82408629D7233C00D07C18 /* BaseNetworkTests.swift */; };
+		CB82408929D727F200D07C18 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82408829D727F200D07C18 /* NetworkTests.swift */; };
 		CBB265DB29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
 		CBB265DC29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
 		CBB265DD29D1B71900F647D1 /* CharactersData.json in Resources */ = {isa = PBXBuildFile; fileRef = CBB265DA29D1B71900F647D1 /* CharactersData.json */; };
@@ -95,6 +97,8 @@
 		CB82407A29D4514E00D07C18 /* SerieRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieRowView.swift; sourceTree = "<group>"; };
 		CB82407E29D4671F00D07C18 /* SeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewModel.swift; sourceTree = "<group>"; };
 		CB82408429D706AB00D07C18 /* SeriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewModelTests.swift; sourceTree = "<group>"; };
+		CB82408629D7233C00D07C18 /* BaseNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkTests.swift; sourceTree = "<group>"; };
+		CB82408829D727F200D07C18 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		CBB265DA29D1B71900F647D1 /* CharactersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CharactersData.json; sourceTree = "<group>"; };
 		CBB265DE29D1B93D00F647D1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tools.swift; path = "/Users/pablich/Documents/keepcoding/modulo-ios-superpoderes/practica/MarvelHeroes/MarvelHeroes/Tools/Tools.swift"; sourceTree = "<absolute>"; };
 		CBB265EE29D1E18D00F647D1 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 			children = (
 				CB1C7E6529C4879400A41134 /* CharacterViewModelTests.swift */,
 				CB82408429D706AB00D07C18 /* SeriesViewModelTests.swift */,
+				CB82408629D7233C00D07C18 /* BaseNetworkTests.swift */,
+				CB82408829D727F200D07C18 /* NetworkTests.swift */,
 			);
 			path = MarvelHeroesTests;
 			sourceTree = "<group>";
@@ -413,7 +419,9 @@
 				CBB265E629D1C61500F647D1 /* CharacterViewModel.swift in Sources */,
 				CBB265EC29D1C62000F647D1 /* MarvelHeroesApp.swift in Sources */,
 				CB82407429D3712200D07C18 /* SerieListView.swift in Sources */,
+				CB82408929D727F200D07C18 /* NetworkTests.swift in Sources */,
 				CB1C7E6629C4879400A41134 /* CharacterViewModelTests.swift in Sources */,
+				CB82408729D7233C00D07C18 /* BaseNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

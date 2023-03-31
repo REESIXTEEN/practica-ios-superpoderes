@@ -12,7 +12,7 @@ final class CharacterViewModel : ObservableObject{
     
     @Published var characters: [ResultCharacter] = []
     @Published var error = vmError()
-    let network: Network
+    var network: Network
     let baseNetwork = BaseNetwork()
     var suscriptors = Set<AnyCancellable>()
     

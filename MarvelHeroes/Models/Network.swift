@@ -31,12 +31,18 @@ class Network {
 class MockNetwork: Network {
     
     let file: String
+    let shouldFail: Bool
     
-    init(file:String) {
+    init(file:String, shouldFail:Bool=false) {
         self.file = file
+        self.shouldFail = shouldFail
     }
     
     override func fetchApiData<T>(type: T.Type, request: URLRequest) -> AnyPublisher<T, Error> where T : Decodable {
+        if shouldFail {
+            return Result<T, Error>.failure(URLError(.badServerResponse)).publisher.eraseToAnyPublisher()
+        }
+        
         let data = readData(filename: self.file)
         let result = Result<T, Error>.success(try! JSONDecoder().decode(T.self, from: data))
         return result.publisher.eraseToAnyPublisher()

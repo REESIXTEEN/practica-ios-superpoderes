@@ -34,5 +34,14 @@ final class CharacterViewModelTests: XCTestCase {
         XCTAssertEqual(character, vm.characters[0])
 
     }
+    
+    func testFetchCharactersError() throws {
+        let vm = CharacterViewModel(mock: true)
+        vm.network = MockNetwork(file: "CharactersData", shouldFail: true)
+        vm.fetchCharacters()
+        
+        XCTAssertTrue(vm.error.status == true)
+
+    }
 
 }
