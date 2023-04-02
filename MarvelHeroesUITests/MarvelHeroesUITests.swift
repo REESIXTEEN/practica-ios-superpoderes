@@ -25,11 +25,4 @@ final class MarvelHeroesUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-//    func testCharactersListView() throws {
-//        let vm = CharacterViewModel(mock: true)
-//        let view = CharactersListView(viewmodel: vm)
-//        XCTAssertNotNil(view)
-//
-//
-//    }
 }
