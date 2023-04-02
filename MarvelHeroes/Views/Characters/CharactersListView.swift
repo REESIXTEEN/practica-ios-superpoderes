@@ -29,6 +29,7 @@ struct CharactersListView: View {
                 }
                 .navigationTitle("Marvel characters")
                 .scrollContentBackground(.hidden)
+                .id(0)
                 
             }
             .searchable(text: $searchText)

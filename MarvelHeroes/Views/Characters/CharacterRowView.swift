@@ -24,10 +24,12 @@ struct CharacterRowView: View {
                     ProgressView()
                         .scaleEffect(x:3,y:3)
                 }
+                .id(0)
 
                 Rectangle()
                     .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
                     .opacity(0.8)
+                    .id(1)
                 
                 VStack {
                     HStack {
@@ -36,6 +38,7 @@ struct CharacterRowView: View {
                             .font(.title)
                             .foregroundColor(.white)
                             .frame(width: 40, height: 40)
+                            .id(2)
                     }
                     Spacer()
                     HStack {
@@ -44,6 +47,8 @@ struct CharacterRowView: View {
                             .bold()
                             .lineLimit(1)
                         .foregroundColor(.white)
+                        .id(3)
+                        
                         Spacer()
                     }
                 }

@@ -21,6 +21,7 @@ struct SerieListView: View {
                 }
                 .navigationTitle(viewmodel.character.name + " (Series)")
                 .scrollContentBackground(.hidden)
+                .id(0)
             }
             .alert(isPresented: $viewmodel.error.status) {
                 Alert(title: Text("Error"), message: Text(viewmodel.error.description), dismissButton: .default(Text("OK")))

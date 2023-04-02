@@ -21,7 +21,8 @@ final class CharacterViewModelTests: XCTestCase {
         let vm = CharacterViewModel(mock: true)
         XCTAssertNotNil(vm)
         XCTAssertNotNil(vm.characters)
-        XCTAssertTrue(vm.characters.count > 0)
+        XCTAssertTrue(vm.characters.count == 10)
+        
 
     }
     

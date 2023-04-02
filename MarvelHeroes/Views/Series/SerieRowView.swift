@@ -24,10 +24,12 @@ struct SerieRowView: View {
                     ProgressView()
                         .scaleEffect(x:3,y:3)
                 }
+                .id(0)
 
                 Rectangle()
                     .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
                     .opacity(0.8)
+                    .id(1)
                 
                 VStack {
                     Spacer()
@@ -37,6 +39,8 @@ struct SerieRowView: View {
                             .bold()
                             .lineLimit(2)
                         .foregroundColor(.white)
+                        .id(2)
+                        
                         Spacer()
                     }
                     if let descripction = serie.description {
@@ -47,6 +51,7 @@ struct SerieRowView: View {
                                 .bold()
                                 .lineLimit(5)
                             .foregroundColor(.white)
+                            .id(3)
                         }
                     }
 
