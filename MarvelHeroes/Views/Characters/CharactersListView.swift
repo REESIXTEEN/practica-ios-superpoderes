@@ -29,6 +29,7 @@ struct CharactersListView: View {
                 }
                 .navigationTitle("Marvel characters")
                 .scrollContentBackground(.hidden)
+                
             }
             .searchable(text: $searchText)
             .alert(isPresented: $viewmodel.error.status) {
