@@ -27,14 +27,14 @@ struct CharactersListView: View {
                             .frame(width: geo.size.width*0.9)
                     }
                 }
-                .navigationTitle("Marvel characters")
+                .navigationTitle(Text("character_title"))
                 .scrollContentBackground(.hidden)
                 .id(0)
                 
             }
             .searchable(text: $searchText)
             .alert(isPresented: $viewmodel.error.status) {
-                Alert(title: Text("Error"), message: Text(viewmodel.error.description), dismissButton: .default(Text("OK")))
+                Alert(title: Text("alert_error_title"), message: Text(viewmodel.error.description), dismissButton: .default(Text("alert_button_text")))
             }
         }
     }
@@ -52,5 +52,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let vm = CharacterViewModel(mock: true)
         return CharactersListView(viewmodel: vm)
+//            .environment(\.locale, .init(identifier: "es"))
     }
 }

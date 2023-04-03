@@ -19,12 +19,12 @@ struct SerieListView: View {
                             .frame(width: geo.size.width*0.9)
                     }
                 }
-                .navigationTitle(viewmodel.character.name + " (Series)")
+                .navigationTitle(Text("series_title \(viewmodel.character.name)"))
                 .scrollContentBackground(.hidden)
                 .id(0)
             }
             .alert(isPresented: $viewmodel.error.status) {
-                Alert(title: Text("Error"), message: Text(viewmodel.error.description), dismissButton: .default(Text("OK")))
+                Alert(title: Text("alert_error_title"), message: Text(viewmodel.error.description), dismissButton: .default(Text("alert_button_text")))
             }
         }
     }
@@ -36,5 +36,6 @@ struct CharacterSeries_Previews: PreviewProvider {
         let vm = SeriesViewModel(character: character, mock: true)
         
         return SerieListView(viewmodel: vm)
+//                    .environment(\.locale, .init(identifier: "es"))
     }
 }

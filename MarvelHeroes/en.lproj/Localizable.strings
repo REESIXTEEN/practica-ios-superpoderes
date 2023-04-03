@@ -5,3 +5,10 @@
   Created by Pablo Gómez on 17/3/23.
   
 */
+
+
+"character_title" = "Marvel characters";
+"alert_error_title" = "Error";
+"alert_button_text" = "OK";
+"series_title %@" = "%@ (Series)";
+

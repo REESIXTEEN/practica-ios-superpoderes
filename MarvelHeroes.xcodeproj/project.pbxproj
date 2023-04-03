@@ -75,6 +75,7 @@
 		CBF00C1529DA051300953ECF /* SerieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407229D3712200D07C18 /* SerieListView.swift */; };
 		CBF00C1629DA051600953ECF /* SerieRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82407A29D4514E00D07C18 /* SerieRowView.swift */; };
 		CBF00C1729DA051900953ECF /* MarvelHeroesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1C7E5329C4879300A41134 /* MarvelHeroesApp.swift */; };
+		CBF00C1929DB126400953ECF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB1C7E8729C48D2100A41134 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -510,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF00C0529DA03C400953ECF /* Preview Assets.xcassets in Resources */,
+				CBF00C1929DB126400953ECF /* Localizable.strings in Resources */,
 				CBF00C0229DA03C400953ECF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
