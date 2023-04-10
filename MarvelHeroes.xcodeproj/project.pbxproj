@@ -146,7 +146,7 @@
 		CBAD325E29D9E3B7009BBF28 /* CharacterRowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowViewTests.swift; sourceTree = "<group>"; };
 		CBAD326029D9E44A009BBF28 /* SerieRowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieRowViewTests.swift; sourceTree = "<group>"; };
 		CBB265DA29D1B71900F647D1 /* CharactersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CharactersData.json; sourceTree = "<group>"; };
-		CBB265DE29D1B93D00F647D1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tools.swift; path = "/Users/pablich/Documents/keepcoding/modulo-ios-superpoderes/practica/MarvelHeroes/MarvelHeroes/Tools/Tools.swift"; sourceTree = "<absolute>"; };
+		CBB265DE29D1B93D00F647D1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		CBB265EE29D1E18D00F647D1 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
 		CBB265F229D1EF8500F647D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CBF00BFB29DA03C200953ECF /* WatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
